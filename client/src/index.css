@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Roboto+Mono&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Retro theme colors */
+  --retro-red: 0, 100%, 67%;
+  --retro-blue: 210, 100%, 67%;
+  --retro-green: 120, 100%, 60%;
+  --retro-orange: 40, 100%, 50%;
+  --retro-dark: 0, 0%, 7%;
+  --retro-panel: 0, 0%, 16%;
+  --retro-light: 0, 0%, 93%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-retro-dark text-retro-light;
+  }
+}
+
+@layer components {
+  /* Tailwind doesn't generate classes for HSL values dynamically, so defining them here */
+  .bg-retro-red {
+    background-color: hsl(var(--retro-red));
+  }
+  
+  .bg-retro-blue {
+    background-color: hsl(var(--retro-blue));
+  }
+  
+  .bg-retro-green {
+    background-color: hsl(var(--retro-green));
+  }
+  
+  .bg-retro-orange {
+    background-color: hsl(var(--retro-orange));
+  }
+  
+  .bg-retro-dark {
+    background-color: hsl(var(--retro-dark));
+  }
+  
+  .bg-retro-panel {
+    background-color: hsl(var(--retro-panel));
+  }
+  
+  .bg-retro-light {
+    background-color: hsl(var(--retro-light));
+  }
+  
+  .text-retro-red {
+    color: hsl(var(--retro-red));
+  }
+  
+  .text-retro-blue {
+    color: hsl(var(--retro-blue));
+  }
+  
+  .text-retro-green {
+    color: hsl(var(--retro-green));
+  }
+  
+  .text-retro-orange {
+    color: hsl(var(--retro-orange));
+  }
+  
+  .text-retro-dark {
+    color: hsl(var(--retro-dark));
+  }
+  
+  .text-retro-panel {
+    color: hsl(var(--retro-panel));
+  }
+  
+  .text-retro-light {
+    color: hsl(var(--retro-light));
+  }
+  
+  .border-retro-red {
+    border-color: hsl(var(--retro-red));
+  }
+  
+  .border-retro-blue {
+    border-color: hsl(var(--retro-blue));
+  }
+  
+  .border-retro-green {
+    border-color: hsl(var(--retro-green));
+  }
+  
+  .border-retro-orange {
+    border-color: hsl(var(--retro-orange));
+  }
+  
+  .border-retro-light {
+    border-color: hsl(var(--retro-light));
+  }
+  
+  /* Font classes */
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .font-terminal {
+    font-family: 'VT323', monospace;
+  }
+  
+  /* Pixel borders styling */
+  .pixel-borders {
+    box-shadow: 
+      0 -4px 0 0 hsl(var(--retro-light)),
+      0 4px 0 0 hsl(var(--retro-light)),
+      4px 0 0 0 hsl(var(--retro-light)),
+      -4px 0 0 0 hsl(var(--retro-light));
+  }
+  
+  /* Pixel button styling */
+  .pixel-button {
+    position: relative;
+    transition: all 0.1s;
+  }
+  
+  .pixel-button:active {
+    top: 4px;
+    box-shadow: none !important;
+  }
+  
+  /* CRT scanline effect */
+  .crt-scanline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(32, 32, 32, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Bit visualization */
+  .bit {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+    line-height: 24px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  
+  .bit-0 {
+    background-color: hsl(var(--retro-dark));
+    color: hsl(var(--retro-blue));
+    border: 2px solid hsl(var(--retro-blue));
+  }
+  
+  .bit-1 {
+    background-color: hsl(var(--retro-blue));
+    color: hsl(var(--retro-dark));
+    border: 2px solid hsl(var(--retro-blue));
+  }
+  
+  /* Terminal typing effect */
+  .typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid hsl(var(--retro-green));
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: hsl(var(--retro-green)) }
+  }
+  
+  /* Progress stages */
+  .stage-indicator {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid hsl(var(--retro-orange));
+    margin-right: 8px;
+  }
+  
+  .stage-active {
+    background-color: hsl(var(--retro-orange));
+  }
+  
+  .stage-line {
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: hsl(var(--retro-orange));
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+  }
+  
+  /* Grid background */
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(238, 238, 238, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(238, 238, 238, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+  
+  .animate-shift-right {
+    animation: shiftRight 1s infinite;
+  }
+  
+  .animate-bit-flip {
+    animation: bitFlip 0.5s ease-in-out;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  @keyframes shiftRight {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes bitFlip {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(180deg); }
+  }
+}
